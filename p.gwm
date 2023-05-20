@@ -1,0 +1,37 @@
+gwm|(
+    name: "Nazwa modyfikacji systemu Windows (max. 50 znaków)"
+    description: "Opis modyfikacji systemu Windows (max. 10000 znaków)"
+    version: "Wersja modyfikacji systemu Windows (liczby i kropki ułożone wg. wzoru x.x np. 2.0, ale już nie 2,0 lub 2.3.5)"
+    minimal_mods_interpretter_version: 1
+    permissions: "admin/user"
+)
+
+# to komentarz
+/* to też komentarz */
+// i to również komentarz
+
+# Puste linie będą ignorowane przez interpreter
+# Od gwm|( do ) nie można wstawiać komentarzy
+# Pierwsza linia musi brzmieć gwm|( a po specyfikacji moda musi być )
+# Podstawowe wpisy
+
+/* Sekcja HEAD - ważne informacje o modzie */
+HEAD {
+    attachments: [
+        # tablica z załącznikami, nie są uruchamiane po starcie ale apka zarządza kiedy z nich skorzystać
+        # nazwa załącznika musi być w cudzysłowiu
+        # potem dodajemy as i w cudzysłowiu nazwę jakiej chcemy używać w skrypcie jako ten plik
+        # po za tym to działa jak json
+        "examplebatscript.bat" as "BatScript"
+        "examplevbsscript.vbs" as "VBSScript"
+    ]
+    # tu będą dodawane później możliwe rzeczy do wpisania
+}
+
+BODY {
+    # uruchamiamy skrypt bat
+    BatScript->run();
+    # uruchamiamy skrypt vbs
+    VBSScript->run();
+    # tu jescze będą inne rzeczy
+}
